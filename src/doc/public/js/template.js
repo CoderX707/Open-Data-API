@@ -327,14 +327,14 @@ mainMenu.forEach((main) => {
     mainContent.innerHTML += `<div class="overflow-hidden content-section" id="${main.id}">
             <h1>Get started</h1>
             <pre>API Endpoint
-            http://127.0.0.1:5000/rest-api/v1/
-            http://127.0.0.1:5000/graphql/v1/
+            https://mockx-api.herokuapp.com/rest-api/v1/
+            https://mockx-api.herokuapp.com/graphql/v1/
             </pre>
             <p>
                 Free fake <strong>REST API</strong> and <strong>GRAPHQL</strong> for testing and prototyping. 
             </p>  
             <p>
-            http://127.0.0.1:5000/ is a free online <strong>REST API</strong> as well as <strong>GRAPHQL</strong> that you can use whenever you need some fake data. It can be in a README on GitHub, simply to test things locally.
+            https://mockx-api.herokuapp.com/ is a free online <strong>REST API</strong> as well as <strong>GRAPHQL</strong> that you can use whenever you need some fake data. It can be in a README on GitHub, simply to test things locally.
             This site is for study and practice purpose only,
             All data in this site is fake does not belong to anyone
             </p>   
@@ -350,7 +350,7 @@ mainMenu.forEach((main) => {
     mainContent.innerHTML += `<div class="overflow-hidden content-section" id="${main.id}">
             <h1>Rest API</h1>
             <pre>API Endpoint
-            http://127.0.0.1:5000/rest-api/v1/
+            https://mockx-api.herokuapp.com/rest-api/v1/
             </pre>
             <p>
             REpresentational State Transfer (REST) is an architectural style that defines a set of constraints to be used for creating web services. REST API is a way of accessing web services in a simple and flexible way without having any processing.
@@ -363,7 +363,7 @@ mainMenu.forEach((main) => {
     mainContent.innerHTML += `<div class="overflow-hidden content-section" id="${main.id}">
             <h1>graphql</h1>
             <pre>API Endpoint
-            http://127.0.0.1:5000/graphql/v1/
+            https://mockx-api.herokuapp.com/graphql/v1/
             </pre>
             <p>
             GraphQL is a query language and server-side runtime for application programming interfaces (APIs) that prioritizes giving clients exactly the data they request and no more. 
@@ -380,7 +380,7 @@ mainMenu.forEach((main) => {
         <h2>${menu.title}</h2>
         <pre><code class="bash">
           # Here is a curl example
-          curl --location --request GET 'http://127.0.0.1:5000/${main.id}/v1/${
+          curl --location --request GET 'https://mockx-api.herokuapp.com/${main.id}/v1/${
         menu.id
       }' \
           --header 'Content-Type: application/json' \
@@ -390,28 +390,28 @@ mainMenu.forEach((main) => {
             For ${menu.id} CRUD oprations use following url and methods :<br>
             <span class="method-bold">
         
-                All ${menu.id} [ <a href="http://127.0.0.1:5000/${main.id}/v1/${menu.id}">GET</a> ]: <code
-                    class="higlighted break-word">http://127.0.0.1:5000/${
+                All ${menu.id} [ <a href="https://mockx-api.herokuapp.com/${main.id}/v1/${menu.id}">GET</a> ]: <code
+                    class="higlighted break-word">https://mockx-api.herokuapp.com/${
                       main.id
                     }/v1/${menu.id}</code>
                 <br>
                 ${menu.id.slice(0, -1) + ''} by
-                id [ GET ]: <code class="higlighted break-word">http://127.0.0.1:5000/${
+                id [ GET ]: <code class="higlighted break-word">https://mockx-api.herokuapp.com/${
                   main.id
                 }/v1/${menu.id}/:id</code>
                 <br>
                 Create ${menu.id.slice(0, -1) + ''} [ POST ]: <code
-                    class="higlighted break-word">http://127.0.0.1:5000/${
+                    class="higlighted break-word">https://mockx-api.herokuapp.com/${
                       main.id
                     }/v1/${menu.id}</code>
                 <br>
                 Update ${menu.id.slice(0, -1) + ''} [ PATCH ]: <code
-                    class="higlighted break-word">http://127.0.0.1:5000/${
+                    class="higlighted break-word">https://mockx-api.herokuapp.com/${
                       main.id
                     }/v1/${menu.id}/:id</code>
                 <br>
                 Delete ${menu.id.slice(0, -1) + ''} [ DELETE ]: <code
-                    class="higlighted break-word">http://127.0.0.1:5000/${
+                    class="higlighted break-word">https://mockx-api.herokuapp.com/${
                       main.id
                     }/v1/${menu.id}/:id</code>
                 <br>
@@ -472,10 +472,10 @@ mainMenu.forEach((main) => {
             }
          </code></pre>
         <p>
-            For ${menu.id} CRUD oprations use following url <a href="http://127.0.0.1:5000/graphql/v1/${menu.id}">playground</a>:<br>
+            For ${menu.id} CRUD oprations use following url <a href="https://mockx-api.herokuapp.com/graphql/v1/${menu.id}">playground</a>:<br>
             <span class="method-bold">
                [ GET ]: <code
-                    class="higlighted break-word">http://127.0.0.1:5000/${
+                    class="higlighted break-word">https://mockx-api.herokuapp.com/${
                       main.id
                     }/v1/${menu.id}</code>
             </span>
