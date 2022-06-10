@@ -5,16 +5,18 @@
   "main": "index.js",
   "author": "Ashish",
   "license": "MIT",
-   "engines": {
+  "engines": {
     "node": "16.14.2",
-     "yarn":"1.22.17",
-     "npm":"8.5.0"
+    "yarn": "1.22.17",
+    "npm": "8.5.0"
   },
   "scripts": {
     "start": "node index.js",
     "start:dev": "nodemon index.js"
   },
   "dependencies": {
+    "canvas": "^2.9.1",
+    "canvas-constructor": "^6.0.1",
     "dotenv": "^16.0.0",
     "express": "^4.18.0",
     "express-graphql": "^0.12.0",

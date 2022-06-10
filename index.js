@@ -11,6 +11,7 @@ const { graphQLMoviesSchema } = require('./src/graphql/movies/schema');
 const { moviesResolver } = require('./src/graphql/movies/resolver');
 const { jobsResolver } = require('./src/graphql/jobs/resolver');
 const { graphQLJobsSchema } = require('./src/graphql/jobs/schema');
+const { imageRoute } = require('./src/rest_api/images');
 
 var app = express();
 app.use(express.json());
@@ -28,6 +29,9 @@ app.use('/rest-api/v1/users/', usersRoute);
 app.use('/rest-api/v1/movies/', moviesRoute);
 // jobs CRUD operation routing
 app.use('/rest-api/v1/jobs/', jobsRoute);
+// Make Images routing
+app.use('/rest-api/v1/images/', imageRoute);
+
 
 ///////////////// GraphQL endpoint routing /////////////////
 // users CRUD operation in graphql
