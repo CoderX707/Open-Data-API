@@ -2,7 +2,7 @@
 
 Free fake REST API and GRAPHQL for testing and prototyping. 
 
-# Live Demo : https://mockx-api.herokuapp.com/
+Live Demo : https://mockx-api.herokuapp.com/
 
 
 # Open source project
@@ -11,5 +11,5 @@ https://mockx-api.herokuapp.com/ is a free online REST API as well as GRAPHQL th
 
 The credit for this website design goes to Floriannicolas and CoderX707 for the backend functionality. Thanks for the fake data www.mockaroo.com.
 
-# NOTE:
-      If you want to improve our project please do it.
+## Contributing
+Pull requests are welcome, or open up an issue if you have ideas for additional functionality, new features or bugs.
