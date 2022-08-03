@@ -11,5 +11,5 @@ https://mockx-api.herokuapp.com/ is a free online REST API as well as GRAPHQL th
 
 The credit for this website design goes to Floriannicolas and CoderX707 for the backend functionality. Thanks for the fake data www.mockaroo.com.
 
-## Contributing
+## Contribute
 Pull requests are welcome, or open up an issue if you have ideas for additional functionality, new features or bugs.
