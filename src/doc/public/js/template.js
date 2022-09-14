@@ -1,36 +1,36 @@
 // html dynamic ui
 
 const mainMenu = [
-  { id: 'get-started', title: 'Get Started' },
-  { id: 'rest-api', title: 'REST API' },
-  { id: 'graphql', title: 'GraphQL' },
+    { id: 'get-started', title: 'Get Started' },
+    { id: 'rest-api', title: 'REST API' },
+    { id: 'graphql', title: 'GraphQL' },
 ];
 
 const menuList = [
-  { id: 'images', title: 'Images' },
-  { id: 'users', title: 'Users' },
-  { id: 'jobs', title: 'Jobs' },
-  { id: 'movies', title: 'Movies' },
+    { id: 'images', title: 'Images' },
+    { id: 'users', title: 'Users' },
+    { id: 'jobs', title: 'Jobs' },
+    { id: 'movies', title: 'Movies' },
+    { id: 'currency', title: 'Currency Exchange Rate' },
 ];
 
 const sidebarMenu = document.getElementById('sidebarMenu');
 
 mainMenu.forEach((main) => {
-  sidebarMenu.innerHTML += `
-      <li class="scroll-to-link ${
-        main.id !== 'get-started' ? 'menu-title' : 'active'
-      }" data-target="${main.id}">
+    sidebarMenu.innerHTML += `
+      <li class="scroll-to-link ${main.id !== 'get-started' ? 'menu-title' : 'active'
+        }" data-target="${main.id}">
           <a>${main.title}</a>
       </li>`;
-  if (main.id !== 'get-started') {
-    menuList.forEach((menu) => {
-      if (main.id === 'graphql' && menu.id === 'images') return;
-      sidebarMenu.innerHTML += `
+    if (main.id !== 'get-started') {
+        menuList.forEach((menu) => {
+            if (main.id === 'graphql' && menu.id === 'images') return;
+            sidebarMenu.innerHTML += `
               <li class="scroll-to-link" data-target="${main.id + menu.id}">
                   <a>${menu.title}</a>
               </li>`;
-    });
-  }
+        });
+    }
 });
 
 const userCurlResult = `[
@@ -134,6 +134,51 @@ const moviesCurlResult = `[
             },
             ...
         ]`;
+
+const currencyCurlResult = `
+    {
+        "base": "USD",
+        "date": "2022-09-14",
+        "countries": [
+            {
+                "currencyCode": "USD",
+                "currencyName": "United States Dollar",
+                "country": "United States",
+                "rate": 1
+            },
+            {
+                "currencyCode": "AED",
+                "currencyName": "UAE Dirham",
+                "country": "United Arab Emirates",
+                "rate": 3.67
+            },
+            {
+                "currencyCode": "AFN",
+                "currencyName": "Afghan Afghani",
+                "country": "Afghanistan",
+                "rate": 88.11
+            },
+            {
+                "currencyCode": "ALL",
+                "currencyName": "Albanian Lek",
+                "country": "Albania",
+                "rate": 116
+            },
+            {
+                "currencyCode": "AMD",
+                "currencyName": "Armenian Dram",
+                "country": "Armenia",
+                "rate": 405.36
+            },
+            {
+                "currencyCode": "ANG",
+                "currencyName": "Netherlands Antillian Guilder",
+                "country": "Netherlands Antilles",
+                "rate": 1.79
+            }
+            ...
+        ]
+    }`;
 
 const imagesQueryParams = `<tbody>
 <tr>
@@ -348,12 +393,27 @@ const moviesGraphqlQuery = `
         }
     }`;
 
+
+const currencyGraphqlQuery = `
+    {
+        currency {
+            base
+            date
+            countries {
+                currencyCode
+                currencyName
+                country
+                rate
+            }
+        }
+    }`;
+
 const mainContent = document.getElementById('menu-body');
 mainContent.innerHTML = '';
 mainMenu.forEach((main) => {
-  //   Get started
-  if (main.id === 'get-started') {
-    mainContent.innerHTML += `<div class="overflow-hidden content-section" id="${main.id}">
+    //   Get started
+    if (main.id === 'get-started') {
+        mainContent.innerHTML += `<div class="overflow-hidden content-section" id="${main.id}">
             <h1>Get started</h1>
             <pre>API Endpoint
             https://mockx-api.herokuapp.com/rest-api/v1/
@@ -373,10 +433,10 @@ mainMenu.forEach((main) => {
             </p>   
             <p><strong>NOTE: </strong>If you want to improve our project please do it, On right side we have provided github link.</p>
         </div>`;
-  }
-  //   What is Rest API
-  if (main.id === 'rest-api') {
-    mainContent.innerHTML += `<div class="overflow-hidden content-section" id="${main.id}">
+    }
+    //   What is Rest API
+    if (main.id === 'rest-api') {
+        mainContent.innerHTML += `<div class="overflow-hidden content-section" id="${main.id}">
             <h1>Rest API</h1>
             <pre>API Endpoint
             https://mockx-api.herokuapp.com/rest-api/v1/
@@ -386,10 +446,10 @@ mainMenu.forEach((main) => {
             REST technology is generally preferred to the more robust Simple Object Access Protocol (SOAP) technology because REST uses less bandwidth, simple and flexible making it more suitable for internet usage. It’s used to fetch or give some information from a web service. All communication done via REST API uses only HTTP request. 
             </p>   
         </div>`;
-  }
-  //   What is GraphQL
-  if (main.id === 'graphql') {
-    mainContent.innerHTML += `<div class="overflow-hidden content-section" id="${main.id}">
+    }
+    //   What is GraphQL
+    if (main.id === 'graphql') {
+        mainContent.innerHTML += `<div class="overflow-hidden content-section" id="${main.id}">
             <h1>graphql</h1>
             <pre>API Endpoint
             https://mockx-api.herokuapp.com/graphql/v1/
@@ -399,33 +459,29 @@ mainMenu.forEach((main) => {
             GraphQL is designed to make APIs fast, flexible, and developer-friendly. It can even be deployed within an integrated development environment (IDE) known as GraphiQL.
             </p>   
         </div>`;
-  }
-  //   Rest API body content
-  if (main.id !== 'get-started' && main.id === 'rest-api') {
-    menuList.forEach((menu) => {
-      mainContent.innerHTML += `<div class="overflow-hidden content-section" id="${
-        main.id + menu.id
-      }">
+    }
+    //   Rest API body content
+    if (main.id !== 'get-started' && main.id === 'rest-api') {
+        menuList.forEach((menu) => {
+            mainContent.innerHTML += `<div class="overflow-hidden content-section" id="${main.id + menu.id
+                }">
         <h2>${menu.title}</h2>
         <pre><code class="bash">
           # Here is a curl example
-          curl --location --request GET 'https://mockx-api.herokuapp.com/${main.id}/v1/${
-        menu.id
-      }' \
+          curl --location --request GET 'https://mockx-api.herokuapp.com/${main.id}/v1/${menu.id
+                }' \
           --header 'Content-Type: application/json' \
           --header 'Accept: application/json'
          </code></pre>
         
-        ${
-            menu.id === 'images'?
-            `<p>
+        ${menu.id === 'images' ?
+                    `<p>
             For get ${menu.id} use following url and methods :<br>
             <span class="method-bold">
         
             Random ${menu.id.slice(0, -1) + ''} [ <a href="https://mockx-api.herokuapp.com/${main.id}/v1/${menu.id}">GET</a> ]:<br/> <code
-                class="higlighted break-word">https://mockx-api.herokuapp.com/${
-                  main.id
-                }/v1/${menu.id}</code>
+                class="higlighted break-word">https://mockx-api.herokuapp.com/${main.id
+                    }/v1/${menu.id}</code>
             <br>
             ${menu.id.slice(0, -1) + ''} by Dimension and Text [ GET ]:<br/> 
             <code class="higlighted break-word">https://mockx-api.herokuapp.com/${main.id}/v1/${menu.id}/:widthXheight/:text</code>
@@ -435,54 +491,56 @@ mainMenu.forEach((main) => {
             <br>
             </span>
             </p>`
-            :
-            `<p>
+                    : menu.id === 'currency' ? `<p>
+                For ${menu.id} CRUD oprations use following url and methods :<br>
+                <span class="method-bold">
+                    All ${menu.id} [ <a href="https://mockx-api.herokuapp.com/${main.id}/v1/${menu.id}">GET</a> ]:<br/> <code
+                        class="higlighted break-word">https://mockx-api.herokuapp.com/${main.id
+                        }/v1/${menu.id}</code>
+                </span>
+            </p>`
+                        :
+                        `<p>
             For ${menu.id} CRUD oprations use following url and methods :<br>
             <span class="method-bold">
         
                 All ${menu.id} [ <a href="https://mockx-api.herokuapp.com/${main.id}/v1/${menu.id}">GET</a> ]:<br/> <code
-                    class="higlighted break-word">https://mockx-api.herokuapp.com/${
-                      main.id
-                    }/v1/${menu.id}</code>
+                    class="higlighted break-word">https://mockx-api.herokuapp.com/${main.id
+                        }/v1/${menu.id}</code>
                 <br>
                 ${menu.id.slice(0, -1) + ''} by
-                id [ GET ]:<br/> <code class="higlighted break-word">https://mockx-api.herokuapp.com/${
-                  main.id
-                }/v1/${menu.id}/:id</code>
+                id [ GET ]:<br/> <code class="higlighted break-word">https://mockx-api.herokuapp.com/${main.id
+                        }/v1/${menu.id}/:id</code>
                 <br>
                 Create ${menu.id.slice(0, -1) + ''} [ POST ]:<br/> <code
-                    class="higlighted break-word">https://mockx-api.herokuapp.com/${
-                      main.id
-                    }/v1/${menu.id}</code>
+                    class="higlighted break-word">https://mockx-api.herokuapp.com/${main.id
+                        }/v1/${menu.id}</code>
                 <br>
                 Update ${menu.id.slice(0, -1) + ''} [ PATCH ]:<br/> <code
-                    class="higlighted break-word">https://mockx-api.herokuapp.com/${
-                      main.id
-                    }/v1/${menu.id}/:id</code>
+                    class="higlighted break-word">https://mockx-api.herokuapp.com/${main.id
+                        }/v1/${menu.id}/:id</code>
                 <br>
                 Delete ${menu.id.slice(0, -1) + ''} [ DELETE ]:<br/> <code
-                    class="higlighted break-word">https://mockx-api.herokuapp.com/${
-                      main.id
-                    }/v1/${menu.id}/:id</code>
+                    class="higlighted break-word">https://mockx-api.herokuapp.com/${main.id
+                        }/v1/${menu.id}/:id</code>
                 <br>
             </span>
         </p>`
-        }
+                }
             
         <br>
         <pre><code class="json">
         Result example :
-        ${
-          menu.id === 'users'
-            ? userCurlResult
-            : menu.id === 'jobs'
-            ? jobsCurlResult
-            : menu.id === 'movies'
-            ? moviesCurlResult
-            : ''
-        }
+        ${menu.id === 'users'
+                    ? userCurlResult
+                    : menu.id === 'jobs'
+                        ? jobsCurlResult
+                        : menu.id === 'movies'
+                            ? moviesCurlResult
+                            : currencyCurlResult
+                }
          </code></pre>
-        <h4>${menu.id === 'images'?'QUERY' : 'BODY'} PARAMETERS</h4>
+        <h4>${menu.id === 'images' ? 'QUERY' : 'BODY'} PARAMETERS</h4>
         <table class="central-overflow-x">
             <thead>
                 <tr>
@@ -491,47 +549,43 @@ mainMenu.forEach((main) => {
                     <th>Description</th>
                 </tr>
             </thead>
-            ${
-              menu.id === 'users'
-                ? userBodyParams
-                : menu.id === 'jobs'
-                ? jobsBodyParams
-                : menu.id === 'movies'
-                ? moviesBodyParams
-                : menu.id === 'images'?
-                imagesQueryParams : ''
-            }
+            ${menu.id === 'users'
+                    ? userBodyParams
+                    : menu.id === 'jobs'
+                        ? jobsBodyParams
+                        : menu.id === 'movies'
+                            ? moviesBodyParams
+                            : menu.id === 'images' ?
+                                imagesQueryParams : ''
+                }
         </table>
         </div>`;
-    });
-  }
-  //   GraphQL body content
-  else if (main.id !== 'get-started' && main.id === 'graphql') {
-    menuList.forEach((menu) => {
-    if (main.id === 'graphql' && menu.id === 'images') return;
-      mainContent.innerHTML += `<div class="overflow-hidden content-section" id="${
-        main.id + menu.id
-      }">
+        });
+    }
+    //   GraphQL body content
+    else if (main.id !== 'get-started' && main.id === 'graphql') {
+        menuList.forEach((menu) => {
+            if (main.id === 'graphql' && menu.id === 'images') return;
+            mainContent.innerHTML += `<div class="overflow-hidden content-section" id="${main.id + menu.id
+                }">
         <h2>${menu.title}</h2>
         <pre><code class="bash">
           # Here is a query example
-            ${
-              menu.id === 'users'
-                ? usersGraphqlQuery
-                : menu.id === 'jobs'
-                ? jobsGraphqlQuery
-                : menu.id === 'movies'
-                ? moviesGraphqlQuery
-                : ''
-            }
+            ${menu.id === 'users'
+                    ? usersGraphqlQuery
+                    : menu.id === 'jobs'
+                        ? jobsGraphqlQuery
+                        : menu.id === 'movies'
+                            ? moviesGraphqlQuery
+                            : currencyGraphqlQuery
+                }
          </code></pre>
         <p>
             For ${menu.id} CRUD oprations use following url <a href="https://mockx-api.herokuapp.com/graphql/v1/${menu.id}">playground</a>:<br>
             <span class="method-bold">
                [ GET ]: <code
-                    class="higlighted break-word">https://mockx-api.herokuapp.com/${
-                      main.id
-                    }/v1/${menu.id}</code>
+                    class="higlighted break-word">https://mockx-api.herokuapp.com/${main.id
+                }/v1/${menu.id}</code>
             </span>
         </p>
         <br>
@@ -544,29 +598,27 @@ mainMenu.forEach((main) => {
                     <th>Description</th>
                 </tr>
             </thead>
-            ${
-              menu.id === 'users'
-                ? userBodyParams
-                : menu.id === 'jobs'
-                ? jobsBodyParams
-                : menu.id === 'movies'
-                ? moviesBodyParams
-                : ''
-            }
+            ${menu.id === 'users'
+                    ? userBodyParams
+                    : menu.id === 'jobs'
+                        ? jobsBodyParams
+                        : menu.id === 'movies'
+                            ? moviesBodyParams
+                            : ''
+                }
         </table>
         <pre><code class="json">
         Result example :
-        ${
-          menu.id === 'users'
-            ? userCurlResult
-            : menu.id === 'jobs'
-            ? jobsCurlResult
-            : menu.id === 'movies'
-            ? moviesCurlResult
-            : ''
-        }
+        ${menu.id === 'users'
+                    ? userCurlResult
+                    : menu.id === 'jobs'
+                        ? jobsCurlResult
+                        : menu.id === 'movies'
+                            ? moviesCurlResult
+                            : currencyCurlResult
+                }
          </code></pre>
         </div>`;
-    });
-  }
+        });
+    }
 });

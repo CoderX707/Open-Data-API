@@ -15,5 +15,6 @@ const JOBS_DATA = path.join(
   __dirname,
   `../${MOCK_DATA}/jobs_mock_data/jobs.json`
 );
+const CURRENCY_EXCHANGE_RATE_URL = 'https://api.exchangerate-api.com/v4/latest/USD';
 
-module.exports = { PORT, MOCK_DATA, USERS_DATA, MOVIES_DATA, JOBS_DATA };
+module.exports = { PORT, MOCK_DATA, USERS_DATA, MOVIES_DATA, JOBS_DATA, CURRENCY_EXCHANGE_RATE_URL };

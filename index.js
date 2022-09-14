@@ -12,6 +12,9 @@ const { moviesResolver } = require('./src/graphql/movies/resolver');
 const { jobsResolver } = require('./src/graphql/jobs/resolver');
 const { graphQLJobsSchema } = require('./src/graphql/jobs/schema');
 const { imageRoute } = require('./src/rest_api/images');
+const { currencyExchangeRate } = require('./src/rest_api/currencyExchangeRate');
+const { graphQLCurrencySchema } = require('./src/graphql/currencyExchangeRate/schema');
+const { currencyResolver } = require('./src/graphql/currencyExchangeRate/resolver');
 
 var app = express();
 app.use(express.json());
@@ -29,8 +32,10 @@ app.use('/rest-api/v1/users/', usersRoute);
 app.use('/rest-api/v1/movies/', moviesRoute);
 // jobs CRUD operation routing
 app.use('/rest-api/v1/jobs/', jobsRoute);
-// Make Images routing
+// Images routing
 app.use('/rest-api/v1/images/', imageRoute);
+// get currency exchange rate
+app.use('/rest-api/v1/currency/', currencyExchangeRate);
 
 
 ///////////////// GraphQL endpoint routing /////////////////
@@ -60,6 +65,16 @@ app.use(
   graphqlHTTP({
     schema: graphQLJobsSchema,
     rootValue: jobsResolver,
+    graphiql: true,
+  })
+);
+
+// get currency exchange rate in graphql
+app.use(
+  '/graphql/v1/currency',
+  graphqlHTTP({
+    schema: graphQLCurrencySchema,
+    rootValue: currencyResolver,
     graphiql: true,
   })
 );
