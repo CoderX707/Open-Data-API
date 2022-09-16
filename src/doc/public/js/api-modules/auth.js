@@ -53,7 +53,7 @@ function authOprations(menuId, mainId) {
     return (`<p>
     For ${menuId} oprations use following url and methods :<br>
     <span class="method-bold">
-        Check ${menuId} [ <a href="https://mockx-api.herokuapp.com/${mainId}/v1/${menuId}">GET</a> ]:<br/> 
+        Check ${menuId} [ <a target="_blank" href="https://mockx-api.herokuapp.com/${mainId}/v1/${menuId}">GET</a> ]:<br/> 
         <code class="higlighted break-word">https://mockx-api.herokuapp.com/${mainId}/v1/${menuId}</code>
         <br>
         Register ${menuId} [ POST ]:<br/> 

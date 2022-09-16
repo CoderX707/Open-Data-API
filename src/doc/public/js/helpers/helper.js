@@ -2,7 +2,7 @@ function curdOprationLinks(id, mainId) {
     return (`<p>
     For ${id} CRUD oprations use following url and methods :<br>
     <span class="method-bold">
-        All ${id} [ <a href="https://mockx-api.herokuapp.com/${mainId}/v1/${id}">GET</a> ]:<br/> <code
+        All ${id} [ <a target="_blank" href="https://mockx-api.herokuapp.com/${mainId}/v1/${id}">GET</a> ]:<br/> <code
             class="higlighted break-word">https://mockx-api.herokuapp.com/${mainId}/v1/${id}</code>
         <br>
         ${id.slice(0, -1) + ''} by

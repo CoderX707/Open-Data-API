@@ -30,7 +30,7 @@ function imagesOprations(menuId,mainId) {
     For get ${menuId} use following url and methods :<br>
     <span class="method-bold">
 
-    Random ${menuId.slice(0, -1) + ''} [ <a href="https://mockx-api.herokuapp.com/${mainId}/v1/${menuId}">GET</a> ]:<br/> <code
+    Random ${menuId.slice(0, -1) + ''} [ <a target="_blank" href="https://mockx-api.herokuapp.com/${mainId}/v1/${menuId}">GET</a> ]:<br/> <code
         class="higlighted break-word">https://mockx-api.herokuapp.com/${mainId
             }/v1/${menuId}</code>
     <br>
