@@ -537,7 +537,7 @@ mainMenu.forEach((main) => {
                         ? jobsCurlResult
                         : menu.id === 'movies'
                             ? moviesCurlResult
-                            : currencyCurlResult
+                            : menu.id === 'images' ? "" : currencyCurlResult
                 }
          </code></pre>
         <h4>${menu.id === 'images' ? 'QUERY' : 'BODY'} PARAMETERS</h4>
