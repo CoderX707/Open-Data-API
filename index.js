@@ -15,11 +15,14 @@ const { imageRoute } = require('./src/rest_api/images');
 const { currencyExchangeRate } = require('./src/rest_api/currencyExchangeRate');
 const { graphQLCurrencySchema } = require('./src/graphql/currencyExchangeRate/schema');
 const { currencyResolver } = require('./src/graphql/currencyExchangeRate/resolver');
+const { authRoute } = require('./src/rest_api/auth');
+const { authResolver } = require('./src/graphql/auth/resolver');
+const { graphQLAuthSchema } = require('./src/graphql/auth/schema');
 
 var app = express();
 app.use(express.json());
 // serve static files
-app.use('/static',express.static('src/doc/public'))
+app.use('/static', express.static('src/doc/public'))
 // Documentation file route
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/src/doc/index.html');
@@ -36,6 +39,8 @@ app.use('/rest-api/v1/jobs/', jobsRoute);
 app.use('/rest-api/v1/images/', imageRoute);
 // get currency exchange rate
 app.use('/rest-api/v1/currency/', currencyExchangeRate);
+// auth routing
+app.use('/rest-api/v1/auth/', authRoute);
 
 
 ///////////////// GraphQL endpoint routing /////////////////
@@ -75,6 +80,16 @@ app.use(
   graphqlHTTP({
     schema: graphQLCurrencySchema,
     rootValue: currencyResolver,
+    graphiql: true,
+  })
+);
+
+// auth operation in graphql
+app.use(
+  '/graphql/v1/auth',
+  graphqlHTTP({
+    schema: graphQLAuthSchema,
+    rootValue: authResolver,
     graphiql: true,
   })
 );
