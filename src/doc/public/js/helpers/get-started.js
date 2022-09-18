@@ -13,10 +13,6 @@ function getStartedContent(id) {
     This site is for study and practice purpose only,
     All data in this site is fake does not belong to anyone
     </p>   
-    <p> 
-    The credit for this website design goes to <a href="https://github.com/floriannicolas">Floriannicolas</a> and <a href="https://github.com/CoderX707">CoderX707</a> for the backend functionality.
-    Thanks for the fake data <a href="https://www.mockaroo.com/">www.mockaroo.com</a>.
-    </p>   
-    <p><strong>NOTE:</strong> If you want to improve our project please do it, On the right side, we have provided a GitHub link.</p>
+    <p><strong>Pull requests are welcome, or open up an issue if you have ideas for additional functionality, new features or bugs.</strong> On the right side, we have provided a GitHub link.</p>
     </div>`);
 }
