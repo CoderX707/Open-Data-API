@@ -8,11 +8,12 @@ const mainMenu = [
 
 const menuList = [
     { id: 'images', title: 'Images' },
+    { id: 'currency', title: 'Currency Exchange Rate' },
+    { id: 'weather', title: 'Weather' },
     { id: 'auth', title: 'Authentication' },
     { id: 'users', title: 'Users' },
     { id: 'jobs', title: 'Jobs' },
     { id: 'movies', title: 'Movies' },
-    { id: 'currency', title: 'Currency Exchange Rate' },
 ];
 
 const sidebarMenu = document.getElementById('sidebarMenu');
@@ -60,7 +61,9 @@ mainMenu.forEach((main) => {
                         ? currencyOprations(menu.id, main.id)
                         : menu.id === 'auth'
                             ? authOprations(menu.id, main.id)
-                            : curdOprationLinks(menu.id, main.id)}
+                            : menu.id === 'weather'
+                                ? weatherOprations(menu.id, main.id)
+                                : curdOprationLinks(menu.id, main.id)}
             
         <br>
         <pre><code class="json">
@@ -76,7 +79,9 @@ Result example :
                                 : menu.id === 'currency'
                                     ? currencyCurlResult
                                     : menu.id === 'auth'
-                                        ? authCurlResult : ''
+                                        ? authCurlResult
+                                        : menu.id === 'weather'
+                                            ? weatherCurlResult : ''
                 }
          </code></pre>
         <h4>${menu.id === 'images' ? 'QUERY' : 'BODY'} PARAMETERS</h4>
@@ -121,18 +126,21 @@ Result example :
                             ? moviesGraphqlQuery
                             : menu.id === 'auth'
                                 ? authGraphqlQuery
-                                : currencyGraphqlQuery
+                                : menu.id === 'weather'
+                                    ? weatherGraphqlQuery
+                                    : menu.id === 'currency' ? currencyGraphqlQuery : ''
 
                 }
          </code></pre>
         ${menu.id === 'currency' ? currencyGraphQL(menu.id, main.id) :
                     menu.id === 'auth' ? authGraphQL(menu.id, main.id) :
-                        `<p>
+                        menu.id === 'weather' ? weatherGraphQL(menu.id, main.id) :
+                            `<p>
             For ${menu.id} CRUD oprations use following url <a href="https://mockx-api.herokuapp.com/graphql/v1/${menu.id}">playground</a>:<br>
             <span class="method-bold">
                [ GET ]: <code
                     class="higlighted break-word">https://mockx-api.herokuapp.com/${main.id
-                        }/v1/${menu.id}</code>
+                            }/v1/${menu.id}</code>
             </span>
         </p>`}
         <br>
@@ -164,7 +172,10 @@ Result example :
                         ? jobsCurlResult
                         : menu.id === 'movies'
                             ? moviesCurlResult
-                            : currencyCurlResult
+                            : menu.id === 'currency'
+                                ? currencyCurlResult
+                                : menu.id === 'weather'
+                                    ? weatherCurlResult : ''
                 }
          </code></pre>
         </div>`;

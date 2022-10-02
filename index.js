@@ -18,6 +18,9 @@ const { currencyResolver } = require('./src/graphql/currencyExchangeRate/resolve
 const { authRoute } = require('./src/rest_api/auth');
 const { authResolver } = require('./src/graphql/auth/resolver');
 const { graphQLAuthSchema } = require('./src/graphql/auth/schema');
+const { weatherRoute } = require('./src/rest_api/weather');
+const { graphQLWeatherSchema } = require('./src/graphql/weather/schema');
+const { weatherResolver } = require('./src/graphql/weather/resolver');
 
 var app = express();
 app.use(express.json());
@@ -41,6 +44,8 @@ app.use('/rest-api/v1/images/', imageRoute);
 app.use('/rest-api/v1/currency/', currencyExchangeRate);
 // auth routing
 app.use('/rest-api/v1/auth/', authRoute);
+// weather routing
+app.use('/rest-api/v1/weather/', weatherRoute);
 
 
 ///////////////// GraphQL endpoint routing /////////////////
@@ -90,6 +95,16 @@ app.use(
   graphqlHTTP({
     schema: graphQLAuthSchema,
     rootValue: authResolver,
+    graphiql: true,
+  })
+);
+
+// weather operation in graphql
+app.use(
+  '/graphql/v1/weather',
+  graphqlHTTP({
+    schema: graphQLWeatherSchema,
+    rootValue: weatherResolver,
     graphiql: true,
   })
 );
