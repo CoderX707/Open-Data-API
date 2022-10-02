@@ -1,5 +1,6 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator');
+const { paginate } = require('../../helper/pagination');
 
 const jobsRoute = express.Router();
 
@@ -11,6 +12,13 @@ let jobs = jobs_mock_data();
 // get all jobs
 jobsRoute.get('/', function (req, res, next) {
   res.json(jobs);
+});
+
+// get jobs by pagination
+jobsRoute.get('/q?', function (req, res, next) {
+  const { page_number, per_page } = req.query;
+  const jobsWithPagination = paginate(jobs, per_page, page_number);
+  res.send(jobsWithPagination);
 });
 
 // get job by id

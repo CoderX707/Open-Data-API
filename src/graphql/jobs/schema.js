@@ -12,10 +12,15 @@ const graphQLJobsSchema = buildSchema(`
         short_description: String
         long_description: String
     }
-
+    type PaginateResult{
+        data:[Job]
+        per_page:Int
+        page_number:Int
+    }
     type Query {
         jobs: [Job]
         job(id: ID!): Job
+        jobsByPaginate(per_page:Int, page_number:Int): PaginateResult
     }
 
     type Mutation {

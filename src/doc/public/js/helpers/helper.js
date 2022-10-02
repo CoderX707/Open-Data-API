@@ -8,6 +8,9 @@ function curdOprationLinks(id, mainId) {
         ${id.slice(0, -1) + ''} by
         id [ GET ]:<br/> <code class="higlighted break-word">https://mockx-api.herokuapp.com/${mainId}/v1/${id}/:id</code>
         <br>
+        ${id} by
+        pagination [ GET ]:<br/> <code class="higlighted break-word">https://mockx-api.herokuapp.com/${mainId}/v1/${id}/q?per_page=10&page_number=1</code>
+        <br>
         Create ${id.slice(0, -1) + ''} [ POST ]:<br/> <code
             class="higlighted break-word">https://mockx-api.herokuapp.com/${mainId}/v1/${id}</code>
         <br>

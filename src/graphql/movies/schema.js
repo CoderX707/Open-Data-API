@@ -12,9 +12,15 @@ const graphQLMoviesSchema = buildSchema(`
         short_description: String
         long_description: String
     }
+    type PaginateResult{
+        data:[Movie]
+        per_page:Int
+        page_number:Int
+    }
     type Query {
         movies: [Movie]
         movie(id: ID!): Movie
+        moviesByPaginate(per_page:Int, page_number:Int): PaginateResult
     }
     type Mutation {
         createMovie(

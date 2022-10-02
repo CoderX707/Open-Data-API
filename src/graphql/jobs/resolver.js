@@ -1,3 +1,4 @@
+const { paginate } = require('../../helper/pagination');
 const { jobs_mock_data } = require('../../helper/read_mock_data');
 
 // get file data to javascript object
@@ -12,6 +13,11 @@ const jobsResolver = {
 
   job({ id }) {
     return jobs.find((job) => job._id == id);
+  },
+  
+  jobsByPaginate({ per_page, page_number }) {
+    const jobsWithPagination = paginate(jobs, per_page, page_number);
+    return jobsWithPagination;
   },
 
   // mutation callback

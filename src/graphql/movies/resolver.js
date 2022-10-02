@@ -1,4 +1,5 @@
 const { movies_mock_data } = require('../../helper/read_mock_data');
+const {paginate} = require('../../helper/pagination');
 
 // get file data to javascript object
 let movies = movies_mock_data();
@@ -12,6 +13,11 @@ const moviesResolver = {
 
   movie({ id }) {
     return movies.find((movie) => movie.id == id);
+  },
+
+  moviesByPaginate({ per_page, page_number }) {
+    const moviesWithPagination = paginate(movies, per_page, page_number);
+    return moviesWithPagination;
   },
 
   // mutation callback

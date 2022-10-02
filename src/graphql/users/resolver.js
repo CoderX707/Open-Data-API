@@ -1,4 +1,5 @@
 const { users_mock_data } = require('../../helper/read_mock_data');
+const { paginate } = require('../../helper/pagination');
 
 // get file data to javascript object
 let users = users_mock_data();
@@ -12,6 +13,11 @@ const usersResolver = {
 
   user({ id }) {
     return users.find((user) => user.id == id);
+  },
+
+  usersByPaginate({ per_page,page_number }) {
+    const usersWithPagination = paginate(users,per_page,page_number);
+    return usersWithPagination;
   },
 
   // mutation callback

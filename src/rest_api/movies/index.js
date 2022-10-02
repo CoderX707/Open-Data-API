@@ -4,6 +4,7 @@ const { body, validationResult } = require('express-validator');
 const moviesRoute = express.Router();
 
 const { movies_mock_data } = require('../../helper/read_mock_data');
+const { paginate } = require('../../helper/pagination');
 
 // get file data to javascript object
 let movies = movies_mock_data();
@@ -11,6 +12,13 @@ let movies = movies_mock_data();
 // get all movies
 moviesRoute.get('/', function (req, res, next) {
   res.json(movies);
+});
+
+// get movies by pagination
+moviesRoute.get('/q?', function (req, res, next) {
+  const { page_number, per_page } = req.query;
+  const moviesWithPagination = paginate(movies, per_page, page_number);
+  res.send(moviesWithPagination);
 });
 
 // get movie by id
