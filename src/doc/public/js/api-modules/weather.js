@@ -61,7 +61,7 @@ function weatherOprations(menuId, mainId) {
     return (`<p>
     For get ${menuId} exchange rate use following url:<br>
     <span class="method-bold">
-        ${menuId} [ <a target="_blank" href="https://mockx-api.herokuapp.com/${mainId}/v1/${menuId}">GET</a> ]:<br/> 
+        ${menuId} [ <a target="_blank" href="https://mockx-api.herokuapp.com/${mainId}/v1/${menuId}/pune/">GET</a> ]:<br/> 
         <code class="higlighted break-word">https://mockx-api.herokuapp.com/${mainId}/v1/${menuId}/cityName</code>
     </span>
 </p>`);
