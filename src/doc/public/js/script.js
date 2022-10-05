@@ -1,13 +1,13 @@
 // dynamic scroll functionality
 function dynamicScrolling() {
-  var elements = [];
+  let elements = [];
 
   [].forEach.call(document.querySelectorAll('.scroll-to-link'), function (div) {
     div.onclick = function (e) {
       e.preventDefault();
-      var target = this.dataset.target;
+      let target = this.dataset.target;
       document.getElementById(target).scrollIntoView({ behavior: 'smooth' });
-      var elems = document.querySelectorAll('.content-menu ul li');
+      let elems = document.querySelectorAll('.content-menu ul li');
       [].forEach.call(elems, function (el) {
         el.classList.remove('active');
       });
@@ -28,7 +28,7 @@ function dynamicScrolling() {
   };
 
   function debounce(func) {
-    var timer;
+    let timer;
     return function (event) {
       if (timer) clearTimeout(timer);
       timer = setTimeout(func, 100, event);
@@ -36,12 +36,12 @@ function dynamicScrolling() {
   }
 
   function calculElements() {
-    var totalHeight = 0;
+    let totalHeight = 0;
     elements = [];
     [].forEach.call(
       document.querySelectorAll('.content-section'),
       function (div) {
-        var section = {};
+        let section = {};
         section.id = div.id;
         totalHeight += div.offsetHeight;
         section.maxHeight = totalHeight - 25;
@@ -52,15 +52,15 @@ function dynamicScrolling() {
   }
 
   function onScroll() {
-    var scroll = window.pageYOffset;
-    for (var i = 0; i < elements.length; i++) {
-      var section = elements[i];
+    let scroll = window.pageYOffset;
+    for (let i = 0; i < elements.length; i++) {
+      let section = elements[i];
       if (scroll <= section.maxHeight) {
-        var elems = document.querySelectorAll('.content-menu ul li');
+        let elems = document.querySelectorAll('.content-menu ul li');
         [].forEach.call(elems, function (el) {
           el.classList.remove('active');
         });
-        var activeElems = document.querySelectorAll(
+        let activeElems = document.querySelectorAll(
           ".content-menu ul li[data-target='" + section.id + "']"
         );
         [].forEach.call(activeElems, function (el) {
@@ -71,11 +71,11 @@ function dynamicScrolling() {
     }
     if (window.innerHeight + scroll + 5 >= document.body.scrollHeight) {
       // end of scroll, last element
-      var elems = document.querySelectorAll('.content-menu ul li');
+      let elems = document.querySelectorAll('.content-menu ul li');
       [].forEach.call(elems, function (el) {
         el.classList.remove('active');
       });
-      var activeElems = document.querySelectorAll(
+      let activeElems = document.querySelectorAll(
         '.content-menu ul li:last-child'
       );
       [].forEach.call(activeElems, function (el) {

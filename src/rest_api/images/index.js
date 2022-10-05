@@ -4,7 +4,7 @@ const { Canvas } = require('canvas-constructor/cairo');
 const imageRoute = express.Router();
 
 // get random image
-imageRoute.get('/', function (req, res, next) {
+imageRoute.get('/', function (req, res) {
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const backgroundColor = randomColorCode();
   const textColor = randomColorCode();
@@ -20,7 +20,7 @@ imageRoute.get('/', function (req, res, next) {
 });
 
 // get image from dimension and text
-imageRoute.get('/:dimension/:text', function (req, res, next) {
+imageRoute.get('/:dimension/:text', function (req, res) {
   // dimension = Width X Height, text = plain text
   const { dimension, text } = req.params;
   const width = parseInt(dimension.split('X')[0]) || 100; // default width
@@ -42,7 +42,7 @@ imageRoute.get('/:dimension/:text', function (req, res, next) {
 // get image from dimension, text with colors
 imageRoute.get(
   '/:dimension/:text/:textColor/:backgroundColor',
-  function (req, res, next) {
+  function (req, res) {
     // dimension = Width X Height, text = plain text, textColor = string color, backgroundColor = string color not hex color
     const { dimension, text, textColor, backgroundColor } = req.params;
     const width = parseInt(dimension.split('X')[0]) || 100; // default width

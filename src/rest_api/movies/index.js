@@ -10,19 +10,19 @@ const { paginate } = require('../../helper/pagination');
 let movies = movies_mock_data();
 
 // get all movies
-moviesRoute.get('/', function (req, res, next) {
+moviesRoute.get('/', function (req, res) {
   res.json(movies);
 });
 
 // get movies by pagination
-moviesRoute.get('/q?', function (req, res, next) {
+moviesRoute.get('/q?', function (req, res) {
   const { page_number, per_page } = req.query;
   const moviesWithPagination = paginate(movies, per_page, page_number);
   res.send(moviesWithPagination);
 });
 
 // get movie by id
-moviesRoute.get('/:id', function (req, res, next) {
+moviesRoute.get('/:id', function (req, res) {
   const movie = movies.filter(function (movie) {
     return movie.id == req.params.id;
   });
@@ -32,7 +32,7 @@ moviesRoute.get('/:id', function (req, res, next) {
 });
 
 // update movie by id
-moviesRoute.patch('/:id', function (req, res, next) {
+moviesRoute.patch('/:id', function (req, res) {
   let movieFound = false;
   movies.map(function (movie) {
     if (movie.id == req.params.id) {
@@ -80,7 +80,7 @@ moviesRoute.post(
 );
 
 // delete movie by id
-moviesRoute.delete('/:id', function (req, res, next) {
+moviesRoute.delete('/:id', function (req, res) {
   let movieFound = false;
   movies = movies.filter(function (movie) {
     movie.id == req.params.id ? (movieFound = true) : movieFound;

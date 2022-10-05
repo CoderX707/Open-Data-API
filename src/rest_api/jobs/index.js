@@ -10,19 +10,19 @@ const { jobs_mock_data } = require('../../helper/read_mock_data');
 let jobs = jobs_mock_data();
 
 // get all jobs
-jobsRoute.get('/', function (req, res, next) {
+jobsRoute.get('/', function (req, res) {
   res.json(jobs);
 });
 
 // get jobs by pagination
-jobsRoute.get('/q?', function (req, res, next) {
+jobsRoute.get('/q?', function (req, res) {
   const { page_number, per_page } = req.query;
   const jobsWithPagination = paginate(jobs, per_page, page_number);
   res.send(jobsWithPagination);
 });
 
 // get job by id
-jobsRoute.get('/:id', function (req, res, next) {
+jobsRoute.get('/:id', function (req, res) {
   const job = jobs.filter(function (job) {
     return job._id == req.params.id;
   });
@@ -31,7 +31,7 @@ jobsRoute.get('/:id', function (req, res, next) {
 });
 
 // update job by id
-jobsRoute.patch('/:id', function (req, res, next) {
+jobsRoute.patch('/:id', function (req, res) {
   let jobFound = false;
   jobs.map(function (job) {
     if (job._id == req.params.id) {
@@ -87,7 +87,7 @@ jobsRoute.post(
 );
 
 // delete job by id
-jobsRoute.delete('/:id', function (req, res, next) {
+jobsRoute.delete('/:id', function (req, res) {
   let jobFound = false;
   jobs = jobs.filter(function (job) {
     job._id == req.params.id ? (jobFound = true) : jobFound;

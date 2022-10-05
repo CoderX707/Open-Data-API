@@ -10,19 +10,19 @@ const { users_mock_data } = require('../../helper/read_mock_data');
 let users = users_mock_data();
 
 // get all users
-usersRoute.get('/', function (req, res, next) {
+usersRoute.get('/', function (req, res) {
   res.json(users);
 });
 
 // get users by pagination
-usersRoute.get('/q?', function (req, res, next) {
+usersRoute.get('/q?', function (req, res) {
   const { page_number, per_page } = req.query;
   const usersWithPagination = paginate(users, per_page, page_number);
   res.send(usersWithPagination);
 });
 
 // get user by id
-usersRoute.get('/:id', function (req, res, next) {
+usersRoute.get('/:id', function (req, res) {
   const user = users.filter(function (user) {
     return user.id == req.params.id;
   });
@@ -31,7 +31,7 @@ usersRoute.get('/:id', function (req, res, next) {
 });
 
 // update user by id
-usersRoute.patch('/:id', body('id').isNumeric(), function (req, res, next) {
+usersRoute.patch('/:id', body('id').isNumeric(), function (req, res) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -76,7 +76,7 @@ usersRoute.post(
 );
 
 // delete user by id
-usersRoute.delete('/:id', function (req, res, next) {
+usersRoute.delete('/:id', function (req, res) {
   let userFound = false;
   users = users.filter(function (user) {
     user.id == req.params.id ? (userFound = true) : userFound;

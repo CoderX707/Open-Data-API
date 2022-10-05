@@ -11,7 +11,7 @@ const { users_mock_data } = require('../../helper/read_mock_data');
 let users = users_mock_data();
 
 // check authorization
-authRoute.get('/', function (req, res, next) {
+authRoute.get('/', function (req, res) {
     const { authorization } = req.headers;
     if (!authorization) {
         return res.status(403).send("A token is required for authentication");
