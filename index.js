@@ -22,12 +22,14 @@ const { graphQLAuthSchema } = require('./src/graphql/auth/schema');
 const { weatherRoute } = require('./src/rest_api/weather');
 const { graphQLWeatherSchema } = require('./src/graphql/weather/schema');
 const { weatherResolver } = require('./src/graphql/weather/resolver');
+const { productsRoute } = require('./src/rest_api/products');
 
 var app = express();
 app.use(express.json());
 app.use(cors({origin:'*'}));
 // serve static files
 app.use('/static', express.static('src/doc/public'))
+app.use('/images/products', express.static('src/mock_data/products_mock_data/products'))
 // Documentation file route
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/src/doc/index.html');
@@ -48,6 +50,8 @@ app.use('/rest-api/v1/currency/', currencyExchangeRate);
 app.use('/rest-api/v1/auth/', authRoute);
 // weather routing
 app.use('/rest-api/v1/weather/', weatherRoute);
+// products routing
+app.use('/rest-api/v1/products/', productsRoute);
 
 
 ///////////////// GraphQL endpoint routing /////////////////
@@ -112,7 +116,7 @@ app.use(
 );
 
 // Redirect to home page if route is not found
-app.use(function (req, res, next) {
+app.use(function (req, res) {
   res.status(404);
   res.redirect('/');
 });

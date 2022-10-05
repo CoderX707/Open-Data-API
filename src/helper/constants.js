@@ -17,10 +17,14 @@ const JOBS_DATA = path.join(
   __dirname,
   `../${MOCK_DATA}/jobs_mock_data/jobs.json`
 );
+const PRODUCTS_DATA = path.join(
+  __dirname,
+  `../${MOCK_DATA}/products_mock_data/products.json`
+);
 const CURRENCY_EXCHANGE_RATE_URL = 'https://api.exchangerate-api.com/v4/latest/USD';
 
 function getWeatherAPIUrl(city) {
   return `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.WEATHER_APP_ID}&units=metric`;
 }
 
-module.exports = { PORT, MOCK_DATA, USERS_DATA, MOVIES_DATA, JOBS_DATA, CURRENCY_EXCHANGE_RATE_URL, TOKEN_KEY, getWeatherAPIUrl };
+module.exports = { PORT, MOCK_DATA, USERS_DATA, MOVIES_DATA, JOBS_DATA, CURRENCY_EXCHANGE_RATE_URL, TOKEN_KEY, getWeatherAPIUrl,PRODUCTS_DATA };
