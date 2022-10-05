@@ -1,4 +1,5 @@
 var express = require('express');
+var cors = require('cors');
 const { graphqlHTTP } = require('express-graphql');
 
 const { usersRoute } = require('./src/rest_api/users');
@@ -24,6 +25,7 @@ const { weatherResolver } = require('./src/graphql/weather/resolver');
 
 var app = express();
 app.use(express.json());
+app.use(cors({origin:'*'}));
 // serve static files
 app.use('/static', express.static('src/doc/public'))
 // Documentation file route
