@@ -13,6 +13,7 @@ const graphQLUsersSchema = buildSchema(`
         data:[User]
         per_page:Int
         page_number:Int
+        total:Int
     }
     type Query {
         users: [User]

@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "start:dev": "nodemon index.js",
+    "dev": "nodemon index.js",
     "lint":"eslint --ext .js src/"
   },
   "dependencies": {

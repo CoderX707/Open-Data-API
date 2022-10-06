@@ -64,7 +64,7 @@ function createImage(text, width, height, backgroundColor, textColor) {
     .setColor(backgroundColor)
     .printRectangle(0, 0, width, height)
     .setColor(textColor)
-    .setTextFont(`bold ${width > height ? height / 2 : width / 2}px Impact`)
+    .setTextFont(`bold ${width > height ? height / 2 : width / 2}px Helvetica`)
     .setTextAlign('center')
     .setTextBaseline('middle')
     .printText(

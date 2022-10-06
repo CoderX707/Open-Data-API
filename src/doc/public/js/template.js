@@ -12,6 +12,7 @@ const menuList = [
     { id: 'weather', title: 'Weather' },
     { id: 'auth', title: 'Authentication' },
     { id: 'users', title: 'Users' },
+    { id: 'products', title: 'Products' },
     { id: 'jobs', title: 'Jobs' },
     { id: 'movies', title: 'Movies' },
 ];
@@ -72,16 +73,18 @@ Result example :
                     ? userCurlResult
                     : menu.id === 'jobs'
                         ? jobsCurlResult
-                        : menu.id === 'movies'
-                            ? moviesCurlResult
-                            : menu.id === 'images'
-                                ? "Result cannot can be preview"
-                                : menu.id === 'currency'
-                                    ? currencyCurlResult
-                                    : menu.id === 'auth'
-                                        ? authCurlResult
-                                        : menu.id === 'weather'
-                                            ? weatherCurlResult : ''
+                        : menu.id === 'products'
+                            ? productsCurlResult
+                            : menu.id === 'movies'
+                                ? moviesCurlResult
+                                : menu.id === 'images'
+                                    ? "Result cannot can be preview"
+                                    : menu.id === 'currency'
+                                        ? currencyCurlResult
+                                        : menu.id === 'auth'
+                                            ? authCurlResult
+                                            : menu.id === 'weather'
+                                                ? weatherCurlResult : ''
                 }
          </code></pre>
         <h4>${menu.id === 'images' ? 'QUERY' : 'BODY'} PARAMETERS</h4>
@@ -97,13 +100,15 @@ Result example :
                     ? userBodyParams
                     : menu.id === 'jobs'
                         ? jobsBodyParams
-                        : menu.id === 'movies'
-                            ? moviesBodyParams
-                            : menu.id === 'images'
-                                ? imagesQueryParams
-                                : menu.id === 'auth'
-                                    ? authBodyParams
-                                    : ''
+                        : menu.id === 'products'
+                            ? productsBodyParams
+                            : menu.id === 'movies'
+                                ? moviesBodyParams
+                                : menu.id === 'images'
+                                    ? imagesQueryParams
+                                    : menu.id === 'auth'
+                                        ? authBodyParams
+                                        : ''
                 }
         </table>
         </div>`;
@@ -122,13 +127,15 @@ Result example :
                     ? usersGraphqlQuery
                     : menu.id === 'jobs'
                         ? jobsGraphqlQuery
-                        : menu.id === 'movies'
-                            ? moviesGraphqlQuery
-                            : menu.id === 'auth'
-                                ? authGraphqlQuery
-                                : menu.id === 'weather'
-                                    ? weatherGraphqlQuery
-                                    : menu.id === 'currency' ? currencyGraphqlQuery : ''
+                        : menu.id === 'products'
+                            ? productsGraphqlQuery
+                            : menu.id === 'movies'
+                                ? moviesGraphqlQuery
+                                : menu.id === 'auth'
+                                    ? authGraphqlQuery
+                                    : menu.id === 'weather'
+                                        ? weatherGraphqlQuery
+                                        : menu.id === 'currency' ? currencyGraphqlQuery : ''
 
                 }
          </code></pre>
@@ -157,11 +164,13 @@ Result example :
                     ? userBodyParams
                     : menu.id === 'jobs'
                         ? jobsBodyParams
-                        : menu.id === 'movies'
-                            ? moviesBodyParams
-                            : menu.id === 'auth'
-                                ? authBodyParams
-                                : ""
+                        : menu.id === 'products'
+                            ? productsBodyParams
+                            : menu.id === 'movies'
+                                ? moviesBodyParams
+                                : menu.id === 'auth'
+                                    ? authBodyParams
+                                    : ""
                 }
         </table>
         <pre><code class="json">
@@ -170,12 +179,14 @@ Result example :
                     ? userCurlResult
                     : menu.id === 'jobs'
                         ? jobsCurlResult
-                        : menu.id === 'movies'
-                            ? moviesCurlResult
-                            : menu.id === 'currency'
-                                ? currencyCurlResult
-                                : menu.id === 'weather'
-                                    ? weatherCurlResult : ''
+                        : menu.id === 'products'
+                            ? productsCurlResult
+                            : menu.id === 'movies'
+                                ? moviesCurlResult
+                                : menu.id === 'currency'
+                                    ? currencyCurlResult
+                                    : menu.id === 'weather'
+                                        ? weatherCurlResult : ''
                 }
          </code></pre>
         </div>`;

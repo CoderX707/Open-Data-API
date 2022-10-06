@@ -23,6 +23,8 @@ const { weatherRoute } = require('./src/rest_api/weather');
 const { graphQLWeatherSchema } = require('./src/graphql/weather/schema');
 const { weatherResolver } = require('./src/graphql/weather/resolver');
 const { productsRoute } = require('./src/rest_api/products');
+const { graphQLProductSchema } = require('./src/graphql/products/schema');
+const { productsResolver } = require('./src/graphql/products/resolver');
 
 var app = express();
 app.use(express.json());
@@ -81,6 +83,16 @@ app.use(
   graphqlHTTP({
     schema: graphQLJobsSchema,
     rootValue: jobsResolver,
+    graphiql: true,
+  })
+);
+
+// products CRUD operation in graphql
+app.use(
+  '/graphql/v1/products',
+  graphqlHTTP({
+    schema: graphQLProductSchema,
+    rootValue: productsResolver,
     graphiql: true,
   })
 );

@@ -31,11 +31,7 @@ usersRoute.get('/:id', function (req, res) {
 });
 
 // update user by id
-usersRoute.patch('/:id', body('id').isNumeric(), function (req, res) {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
+usersRoute.patch('/:id', function (req, res) {
   let userFound = false;
   users.map(function (user) {
     if (user.id == req.params.id) {

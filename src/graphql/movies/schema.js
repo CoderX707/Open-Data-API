@@ -16,6 +16,7 @@ const graphQLMoviesSchema = buildSchema(`
         data:[Movie]
         per_page:Int
         page_number:Int
+        total:Int
     }
     type Query {
         movies: [Movie]

@@ -16,6 +16,7 @@ const graphQLJobsSchema = buildSchema(`
         data:[Job]
         per_page:Int
         page_number:Int
+        total:Int
     }
     type Query {
         jobs: [Job]
