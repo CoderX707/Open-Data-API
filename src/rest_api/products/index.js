@@ -45,7 +45,7 @@ productsRoute.post(
       return res.status(400).json({ errors: errors.array() });
     }
     req.body.id = products.length + 1;
-    req.body.thumbnail = "https://mockx-api.herokuapp.com/rest-api/v1/images/600X400/" + req.body.title,
+    req.body.thumbnail = `https://mockx-api.herokuapp.com/rest-api/v1/images?text=${req.body.title}&height=300&width=400&color=NavajoWhite&backgroundColor=black`,
       products.push(req.body);
     res.json({ product: req.body, message: 'product created successfully' });
   }

@@ -30,7 +30,7 @@ const productsResolver = {
         newProduct.stock = stock;
         newProduct.brand = brand;
         newProduct.category = category;
-        newProduct.thumbnail = "https://mockx-api.herokuapp.com/rest-api/v1/images/600X400/" + title
+        newProduct.thumbnail = `https://mockx-api.herokuapp.com/rest-api/v1/images?text=${title}&height=300&width=400&color=NavajoWhite&backgroundColor=black`
         products.push(newProduct);
         return newProduct;
     },
