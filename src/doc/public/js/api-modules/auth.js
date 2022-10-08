@@ -68,7 +68,7 @@ function authOprations(menuId, mainId) {
 
 function authGraphQL(menuId, mainId) {
     return (`<p>
-    For ${menuId} oprations use following url <a href="https://mockx-api.herokuapp.com/graphql/v1/${menuId}">playground</a>:<br>
+    For ${menuId} oprations use following url <a target="_blank" href="https://mockx-api.herokuapp.com/graphql/v1/${menuId}">playground</a>:<br>
     <span class="method-bold">
        [ GET ]: <codeclass="higlighted break-word">https://mockx-api.herokuapp.com/${mainId}/v1/${menuId}</code>
     </span>
