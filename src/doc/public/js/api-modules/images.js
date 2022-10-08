@@ -20,12 +20,12 @@ const imagesQueryParams = `<tbody>
 </tr>
 <tr>
     <td>width</td>
-    <td>String</td>
+    <td>Numbers</td>
     <td>(Optional) Default width 400px (i.e. 200,300,600)</td>
 </tr>
 <tr>
     <td>height</td>
-    <td>String</td>
+    <td>Numbers</td>
     <td>(Optional) Default height 300px (i.e. 200,300,600)</td>
 </tr>
 </tbody>`;
