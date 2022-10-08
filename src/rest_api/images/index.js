@@ -1,63 +1,27 @@
 const express = require('express');
 const { Canvas } = require('canvas-constructor/cairo');
+const { ALPHABET } = require('../../helper/constants');
 
 const imageRoute = express.Router();
 
-// get random image
+// get random image or by query image
 imageRoute.get('/', function (req, res) {
-  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const backgroundColor = randomColorCode();
-  const textColor = randomColorCode();
-  const image = createImage(
-    alphabet.shuffleString(),
-    randomIntNumber(100, 500),
-    randomIntNumber(100, 500),
-    `#${backgroundColor}`,
-    `#${textColor}`
-  );
+  let { text, color, backgroundColor, height, width } = req.query;
+  text = text?.substring(0, 2) || ALPHABET.shuffleString().substring(0, randomIntNumber(2, 2)) // get random characters
+  color = color?.replace(/\s+/g, '') || randomColorCode(); // remove space from text
+  backgroundColor = backgroundColor?.replace(/\s+/g, '') || randomColorCode(); // remove space from text
+  width = parseInt(width) || 400; // default width
+  height = parseInt(height) || 300; // default height
+  const image = createImage(text, width, height, backgroundColor, color);
   res.set({ 'Content-Type': 'image/png' });
   res.send(image);
 });
-
-// get image from dimension and text
-imageRoute.get('/:dimension/:text', function (req, res) {
-  // dimension = Width X Height, text = plain text
-  const { dimension, text } = req.params;
-  const width = parseInt(dimension.split('X')[0]) || 100; // default width
-  const height = parseInt(dimension.split('X')[1]) || 100; // default height
-  // background color, text color
-  const backgroundColor = randomColorCode();
-  const textColor = randomColorCode();
-  const image = createImage(
-    text,
-    width,
-    height,
-    `#${backgroundColor}`,
-    `#${textColor}`
-  );
-  res.set({ 'Content-Type': 'image/png' });
-  res.send(image);
-});
-
-// get image from dimension, text with colors
-imageRoute.get(
-  '/:dimension/:text/:textColor/:backgroundColor',
-  function (req, res) {
-    // dimension = Width X Height, text = plain text, textColor = string color, backgroundColor = string color not hex color
-    const { dimension, text, textColor, backgroundColor } = req.params;
-    const width = parseInt(dimension.split('X')[0]) || 100; // default width
-    const height = parseInt(dimension.split('X')[1]) || 100; // default height
-    const image = createImage(text, width, height, backgroundColor, textColor);
-    res.set({ 'Content-Type': 'image/png' });
-    res.send(image);
-  }
-);
 
 function randomIntNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 function randomColorCode() {
-  return Math.floor(Math.random() * 16777215).toString(16);
+  return "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
 function createImage(text, width, height, backgroundColor, textColor) {
   const canvas = new Canvas(width, height)
@@ -68,7 +32,7 @@ function createImage(text, width, height, backgroundColor, textColor) {
     .setTextAlign('center')
     .setTextBaseline('middle')
     .printText(
-      text.toLocaleUpperCase().substring(0, randomIntNumber(1, 3)),
+      text.toLocaleUpperCase(),
       width / 2,
       height / 2
     )
