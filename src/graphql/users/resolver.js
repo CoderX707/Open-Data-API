@@ -1,4 +1,4 @@
-const { users_mock_data } = require('../../helper/read_mock_data');
+const { users_mock_data } = require('../../helper/read_write_mock_data');
 const { paginate } = require('../../helper/pagination');
 
 // get file data to javascript object

@@ -1,5 +1,5 @@
 const { paginate } = require('../../helper/pagination');
-const { jobs_mock_data } = require('../../helper/read_mock_data');
+const { jobs_mock_data } = require('../../helper/read_write_mock_data');
 
 // get file data to javascript object
 let jobs = jobs_mock_data();

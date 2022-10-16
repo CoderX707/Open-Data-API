@@ -25,6 +25,7 @@ const { weatherResolver } = require('./src/graphql/weather/resolver');
 const { productsRoute } = require('./src/rest_api/products');
 const { graphQLProductSchema } = require('./src/graphql/products/schema');
 const { productsResolver } = require('./src/graphql/products/resolver');
+const { notesRoute } = require('./src/rest_api/notes');
 
 var app = express();
 app.use(express.json());
@@ -54,7 +55,8 @@ app.use('/rest-api/v1/auth/', authRoute);
 app.use('/rest-api/v1/weather/', weatherRoute);
 // products routing
 app.use('/rest-api/v1/products/', productsRoute);
-
+// Notes routing
+app.use('/rest-api/v1/notes/', notesRoute);
 
 ///////////////// GraphQL endpoint routing /////////////////
 // users CRUD operation in graphql

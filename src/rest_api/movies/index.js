@@ -3,7 +3,7 @@ const { body, validationResult } = require('express-validator');
 
 const moviesRoute = express.Router();
 
-const { movies_mock_data } = require('../../helper/read_mock_data');
+const { movies_mock_data } = require('../../helper/read_write_mock_data');
 const { paginate } = require('../../helper/pagination');
 
 // get file data to javascript object
