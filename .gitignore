@@ -14,3 +14,4 @@ lerna-debug.log*
 .pnpm-debug.log*
 yarn.lock
 package-lock.json
+src/mock_data/notes_data/*
