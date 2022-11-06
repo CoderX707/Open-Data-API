@@ -1,6 +1,12 @@
-const fs = require('fs');
+const fs = require("fs");
 
-const { USERS_DATA, MOVIES_DATA, JOBS_DATA, PRODUCTS_DATA, NOTES_DATA } = require('./constants');
+const {
+  USERS_DATA,
+  MOVIES_DATA,
+  JOBS_DATA,
+  PRODUCTS_DATA,
+  NOTES_DATA,
+} = require("./constants");
 
 function users_mock_data() {
   // get file data to javascript object
@@ -36,13 +42,36 @@ function notes_data() {
   const notes = JSON.parse(rawNotesData);
   return notes;
 }
+
+function deleteSingleNoteAfter24Hours() {
+  let notes = notes_data();
+  const OneDay = new Date().getTime() + 1 * 24 * 60 * 60 * 1000;
+  notes.map((note) => {
+    // The yourDate time is more than 1 days from now
+    if (OneDay > new Date(note.createdAt).getTime()) {
+      notes = notes.filter(function (note) {
+        return note.id != note.id;
+      });
+    }
+  });
+  write_note_in_file(JSON.stringify(notes));
+}
+
 function write_note_in_file(notes) {
   fs.writeFile(NOTES_DATA, notes, function (err) {
     if (err) {
       return console.log(err);
     }
-    return 'success';
+    return "success";
   });
 }
 
-module.exports = { users_mock_data, movies_mock_data, jobs_mock_data, products_mock_data, notes_data, write_note_in_file };
+module.exports = {
+  users_mock_data,
+  movies_mock_data,
+  jobs_mock_data,
+  products_mock_data,
+  notes_data,
+  write_note_in_file,
+  deleteSingleNoteAfter24Hours,
+};

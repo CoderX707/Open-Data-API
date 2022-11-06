@@ -1,5 +1,6 @@
-var express = require('express');
-var cors = require('cors');
+const express = require('express');
+const schedule = require('node-schedule');
+const cors = require('cors');
 const { graphqlHTTP } = require('express-graphql');
 
 const { usersRoute } = require('./src/rest_api/users');
@@ -26,8 +27,9 @@ const { productsRoute } = require('./src/rest_api/products');
 const { graphQLProductSchema } = require('./src/graphql/products/schema');
 const { productsResolver } = require('./src/graphql/products/resolver');
 const { notesRoute } = require('./src/rest_api/notes');
+const { deleteSingleNoteAfter24Hours } = require('./src/helper/read_write_mock_data');
 
-var app = express();
+const app = express();
 app.use(express.json());
 app.use(cors({origin:'*'}));
 // serve static files
@@ -128,6 +130,12 @@ app.use(
     graphiql: true,
   })
 );
+
+// Cron job every night at midnight
+schedule.scheduleJob('0 0 * * *', function(){
+  // delete note after 24 hours
+  deleteSingleNoteAfter24Hours()
+});
 
 // Redirect to home page if route is not found
 app.use(function (req, res) {
