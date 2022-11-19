@@ -1,6 +1,7 @@
 const express = require('express');
 const schedule = require('node-schedule');
 const cors = require('cors');
+const {Server} = require("socket.io")
 const { graphqlHTTP } = require('express-graphql');
 
 const { usersRoute } = require('./src/rest_api/users');
@@ -143,6 +144,30 @@ app.use(function (req, res) {
   res.redirect('/');
 });
 
-app.listen(PORT, () =>
+// file sharing module
+const server = require("http").createServer(app);
+const io = new Server(server,{cors:{origin:"*"}});
+
+io.on("connection", function(socket){
+	socket.on("sender-join",function(data){
+		socket.join(data.uid);
+	});
+	socket.on("receiver-join",function(data){
+		socket.join(data.uid);
+		socket.in(data.sender_uid).emit("init", data.uid);
+	});
+	socket.on("file-meta",function(data){
+		socket.in(data.uid).emit("fs-meta", data.metadata);
+	});
+	socket.on("fs-start",function(data){
+		socket.in(data.uid).emit("fs-share", {});
+	});
+	socket.on("file-raw",function(data){
+		socket.in(data.uid).emit("fs-share", data.buffer);
+	})
+});
+
+
+server.listen(PORT, () =>
   console.log(`Express Server Now Running On localhost:${PORT}/`)
 );
