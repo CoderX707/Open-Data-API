@@ -35,12 +35,12 @@ function imagesOprations(menuId, mainId) {
     For get ${menuId} use following url and methods :<br>
     <span class="method-bold">
 
-    Random ${menuId.slice(0, -1) + ''} [ <a target="_blank" href="https://mockx-api.herokuapp.com/${mainId}/v1/${menuId}">GET</a> ]:<br/> <code
-        class="higlighted break-word">https://mockx-api.herokuapp.com/${mainId
+    Random ${menuId.slice(0, -1) + ''} [ <a target="_blank" href="https://open-data.herokuapp.com/${mainId}/v1/${menuId}">GET</a> ]:<br/> <code
+        class="higlighted break-word">https://open-data.herokuapp.com/${mainId
         }/v1/${menuId}</code>
     <br>
-    ${menuId.slice(0, -1) + ''} by query [ <a target="_blank" href="https://mockx-api.herokuapp.com/${mainId}/v1/${menuId}?text=text&height=300&width=400&color=NavajoWhite&backgroundColor=black">GET</a> ]:<br/> 
-    <code class="higlighted break-word">https://mockx-api.herokuapp.com/${mainId}/v1/${menuId}?text=text&height=300&width=400&color=NavajoWhite&backgroundColor=black
+    ${menuId.slice(0, -1) + ''} by query [ <a target="_blank" href="https://open-data.herokuapp.com/${mainId}/v1/${menuId}?text=text&height=300&width=400&color=NavajoWhite&backgroundColor=black">GET</a> ]:<br/> 
+    <code class="higlighted break-word">https://open-data.herokuapp.com/${mainId}/v1/${menuId}?text=text&height=300&width=400&color=NavajoWhite&backgroundColor=black
     </code>
     <br>
     </p>`

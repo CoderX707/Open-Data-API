@@ -4,7 +4,7 @@ require('dotenv').config();
 const PORT = process.env.PORT || 5000;
 const ENV = process.env.ENV || 'DEV';
 const MOCK_DATA = process.env.MOCK_DATA || 'mock_data';
-const TOKEN_KEY = process.env.TOKEN_KEY || 'jwt_secret_mockx';
+const TOKEN_KEY = process.env.TOKEN_KEY || 'jwt_secret_open_data';
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const USERS_DATA = path.join(
   __dirname,

@@ -143,10 +143,10 @@ Result example :
                     menu.id === 'auth' ? authGraphQL(menu.id, main.id) :
                         menu.id === 'weather' ? weatherGraphQL(menu.id, main.id) :
                             `<p>
-            For ${menu.id} CRUD oprations use following url <a target="_blank" href="https://mockx-api.herokuapp.com/graphql/v1/${menu.id}">playground</a>:<br>
+            For ${menu.id} CRUD oprations use following url <a target="_blank" href="https://open-data.herokuapp.com/graphql/v1/${menu.id}">playground</a>:<br>
             <span class="method-bold">
                [ GET ]: <code
-                    class="higlighted break-word">https://mockx-api.herokuapp.com/${main.id
+                    class="higlighted break-word">https://open-data.herokuapp.com/${main.id
                             }/v1/${menu.id}</code>
             </span>
         </p>`}

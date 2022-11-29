@@ -10,13 +10,13 @@ const productsCurlResult = `
         "stock": 94,
         "brand": "Apple",
         "category": "smartphones",
-        "thumbnail": "https://mockx-api.herokuapp.com/images/products/1/thumbnail.jpg",
+        "thumbnail": "https://open-data.herokuapp.com/images/products/1/thumbnail.jpg",
         "images": [
-            "https://mockx-api.herokuapp.com/images/products/1/1.jpg",
-            "https://mockx-api.herokuapp.com/images/products/1/2.jpg",
-            "https://mockx-api.herokuapp.com/images/products/1/3.jpg",
-            "https://mockx-api.herokuapp.com/images/products/1/4.jpg",
-            "https://mockx-api.herokuapp.com/images/products/1/thumbnail.jpg"
+            "https://open-data.herokuapp.com/images/products/1/1.jpg",
+            "https://open-data.herokuapp.com/images/products/1/2.jpg",
+            "https://open-data.herokuapp.com/images/products/1/3.jpg",
+            "https://open-data.herokuapp.com/images/products/1/4.jpg",
+            "https://open-data.herokuapp.com/images/products/1/thumbnail.jpg"
         ]
     },
     {
@@ -29,12 +29,12 @@ const productsCurlResult = `
         "stock": 34,
         "brand": "Apple",
         "category": "smartphones",
-        "thumbnail": "https://mockx-api.herokuapp.com/images/products/2/thumbnail.jpg",
+        "thumbnail": "https://open-data.herokuapp.com/images/products/2/thumbnail.jpg",
         "images": [
-            "https://mockx-api.herokuapp.com/images/products/2/1.jpg",
-            "https://mockx-api.herokuapp.com/images/products/2/2.jpg",
-            "https://mockx-api.herokuapp.com/images/products/2/3.jpg",
-            "https://mockx-api.herokuapp.com/images/products/2/thumbnail.jpg"
+            "https://open-data.herokuapp.com/images/products/2/1.jpg",
+            "https://open-data.herokuapp.com/images/products/2/2.jpg",
+            "https://open-data.herokuapp.com/images/products/2/3.jpg",
+            "https://open-data.herokuapp.com/images/products/2/thumbnail.jpg"
         ]
     },
     {
@@ -47,9 +47,9 @@ const productsCurlResult = `
         "stock": 36,
         "brand": "Samsung",
         "category": "smartphones",
-        "thumbnail": "https://mockx-api.herokuapp.com/images/products/3/thumbnail.jpg",
+        "thumbnail": "https://open-data.herokuapp.com/images/products/3/thumbnail.jpg",
         "images": [
-            "https://mockx-api.herokuapp.com/images/products/3/1.jpg"
+            "https://open-data.herokuapp.com/images/products/3/1.jpg"
         ]
     }
     ...
