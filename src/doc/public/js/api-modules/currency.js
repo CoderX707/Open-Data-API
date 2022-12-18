@@ -61,17 +61,17 @@ function currencyOprations(menuId,mainId) {
     return (`<p>
     For get ${menuId} exchange rate use following url:<br>
     <span class="method-bold">
-        All ${menuId} [ <a target="_blank" href="https://open-data.herokuapp.com/${mainId}/v1/${menuId}">GET</a> ]:<br/> 
-        <code class="higlighted break-word">https://open-data.herokuapp.com/${mainId}/v1/${menuId}</code>
+        All ${menuId} [ <a target="_blank" href="https://open-data.ssovee.com/${mainId}/v1/${menuId}">GET</a> ]:<br/> 
+        <code class="higlighted break-word">https://open-data.ssovee.com/${mainId}/v1/${menuId}</code>
     </span>
 </p>`);
 }
 
 function currencyGraphQL(menuId,mainId) {
     return (`<p>
-    For get ${menuId} exchange rate use following url <a target="_blank" href="https://open-data.herokuapp.com/graphql/v1/${menuId}">playground</a>:<br>
+    For get ${menuId} exchange rate use following url <a target="_blank" href="https://open-data.ssovee.com/graphql/v1/${menuId}">playground</a>:<br>
     <span class="method-bold">
-       [ GET ]: <codeclass="higlighted break-word">https://open-data.herokuapp.com/${mainId}/v1/${menuId}</code>
+       [ GET ]: <codeclass="higlighted break-word">https://open-data.ssovee.com/${mainId}/v1/${menuId}</code>
     </span>
 </p>`);
 }

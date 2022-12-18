@@ -53,14 +53,14 @@ function authOprations(menuId, mainId) {
     return (`<p>
     For ${menuId} oprations use following url and methods :<br>
     <span class="method-bold">
-        Check ${menuId} [ <a target="_blank" href="https://open-data.herokuapp.com/${mainId}/v1/${menuId}">GET</a> ]:<br/> 
-        <code class="higlighted break-word">https://open-data.herokuapp.com/${mainId}/v1/${menuId}</code>
+        Check ${menuId} [ <a target="_blank" href="https://open-data.ssovee.com/${mainId}/v1/${menuId}">GET</a> ]:<br/> 
+        <code class="higlighted break-word">https://open-data.ssovee.com/${mainId}/v1/${menuId}</code>
         <br>
         Register ${menuId} [ POST ]:<br/> 
-        <code class="higlighted break-word">https://open-data.herokuapp.com/${mainId}/v1/${menuId}/register</code>
+        <code class="higlighted break-word">https://open-data.ssovee.com/${mainId}/v1/${menuId}/register</code>
         <br>
         Login ${menuId} [ POST ]:<br/> 
-        <code class="higlighted break-word">https://open-data.herokuapp.com/${mainId}/v1/${menuId}/login</code>
+        <code class="higlighted break-word">https://open-data.ssovee.com/${mainId}/v1/${menuId}/login</code>
         <br>
     </span>
 </p>`);
@@ -68,9 +68,9 @@ function authOprations(menuId, mainId) {
 
 function authGraphQL(menuId, mainId) {
     return (`<p>
-    For ${menuId} oprations use following url <a target="_blank" href="https://open-data.herokuapp.com/graphql/v1/${menuId}">playground</a>:<br>
+    For ${menuId} oprations use following url <a target="_blank" href="https://open-data.ssovee.com/graphql/v1/${menuId}">playground</a>:<br>
     <span class="method-bold">
-       [ GET ]: <codeclass="higlighted break-word">https://open-data.herokuapp.com/${mainId}/v1/${menuId}</code>
+       [ GET ]: <codeclass="higlighted break-word">https://open-data.ssovee.com/${mainId}/v1/${menuId}</code>
     </span>
 </p>`);
 }

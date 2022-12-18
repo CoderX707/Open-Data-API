@@ -2,7 +2,7 @@ function graphQL(id) {
     return ( `<div class="overflow-hidden content-section" id="${id}">
     <h1>graphql</h1>
     <pre>API Endpoint
-    https://open-data.herokuapp.com/graphql/v1/
+    https://open-data.ssovee.com/graphql/v1/
     </pre>
     <p>
     GraphQL is a query language and server-side runtime for application programming interfaces (APIs) that prioritizes giving clients exactly the data they request and no more. 

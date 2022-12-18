@@ -2,7 +2,7 @@ function restApi(id) {
     return (`<div class="overflow-hidden content-section" id="${id}">
             <h1>Rest API</h1>
             <pre>API Endpoint
-            https://open-data.herokuapp.com/rest-api/v1/
+            https://open-data.ssovee.com/rest-api/v1/
             </pre>
             <p>
             REpresentational State Transfer (REST) is an architectural style that defines a set of constraints to be used for creating web services. REST API is a way of accessing web services in a simple and flexible way without having any processing.
