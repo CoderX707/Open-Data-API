@@ -30,7 +30,7 @@ const productsResolver = {
         newProduct.stock = stock;
         newProduct.brand = brand;
         newProduct.category = category;
-        newProduct.thumbnail = `https://open-data.ssovee.com/rest-api/v1/images?text=${title}&height=300&width=400`
+        newProduct.thumbnail = `https://open-data-api.onrender.com/rest-api/v1/images?text=${title}&height=300&width=400`
         products.push(newProduct);
         return newProduct;
     },

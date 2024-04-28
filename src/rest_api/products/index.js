@@ -45,7 +45,7 @@ productsRoute.post(
       return res.status(400).json({ errors: errors.array() });
     }
     req.body.id = products.length + 1;
-    req.body.thumbnail = `https://open-data.ssovee.com/rest-api/v1/images?text=${req.body.title}&height=300&width=400`,
+    req.body.thumbnail = `https://open-data-api.onrender.com/rest-api/v1/images?text=${req.body.title}&height=300&width=400`,
       products.push(req.body);
     res.json({ product: req.body, message: 'product created successfully' });
   }
