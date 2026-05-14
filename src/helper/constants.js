@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 5000;
 const ENV = process.env.ENV || 'DEV';
 const MOCK_DATA = process.env.MOCK_DATA || 'mock_data';
 const TOKEN_KEY = process.env.TOKEN_KEY || 'jwt_secret_open_data';
+const BASE_URL = process.env.BASE_URL || 'https://open-api.ssovee.com/';
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const USERS_DATA = path.join(
   __dirname,
@@ -32,4 +33,4 @@ function getWeatherAPIUrl(city) {
   return `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.WEATHER_APP_ID}&units=metric`;
 }
 
-module.exports = { PORT, MOCK_DATA, USERS_DATA, MOVIES_DATA, JOBS_DATA, CURRENCY_EXCHANGE_RATE_URL, TOKEN_KEY, getWeatherAPIUrl, PRODUCTS_DATA, ALPHABET, NOTES_DATA };
+module.exports = { PORT, MOCK_DATA, USERS_DATA, MOVIES_DATA, JOBS_DATA, CURRENCY_EXCHANGE_RATE_URL, TOKEN_KEY, getWeatherAPIUrl, PRODUCTS_DATA, ALPHABET, NOTES_DATA, BASE_URL };

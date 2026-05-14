@@ -7,6 +7,7 @@ const {
   PRODUCTS_DATA,
   NOTES_DATA,
 } = require("./constants");
+const { BASE_URL } = require("./constants");
 
 function users_mock_data() {
   // get file data to javascript object
@@ -32,7 +33,10 @@ function jobs_mock_data() {
 function products_mock_data() {
   // get file data to javascript object
   const rawproductsData = fs.readFileSync(PRODUCTS_DATA);
-  const products = JSON.parse(rawproductsData);
+  let products = JSON.parse(rawproductsData);
+  // Replace hardcoded URLs with BASE_URL
+  const hardcodedUrl = 'https://open-api.ssovee.com/';
+  products = JSON.parse(JSON.stringify(products).replace(new RegExp(hardcodedUrl, 'g'), BASE_URL));
   return products;
 }
 

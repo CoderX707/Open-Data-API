@@ -3,6 +3,7 @@ const { body, validationResult } = require('express-validator');
 
 const { products_mock_data } = require('../../helper/read_write_mock_data');
 const { paginate } = require('../../helper/pagination');
+const { BASE_URL } = require('../../helper/constants');
 
 // get file data to javascript object
 let products = products_mock_data();
@@ -45,7 +46,7 @@ productsRoute.post(
       return res.status(400).json({ errors: errors.array() });
     }
     req.body.id = products.length + 1;
-    req.body.thumbnail = `https://open-data-api.onrender.com/rest-api/v1/images?text=${req.body.title}&height=300&width=400`,
+    req.body.thumbnail = `${BASE_URL}rest-api/v1/images?text=${req.body.title}&height=300&width=400`,
       products.push(req.body);
     res.json({ product: req.body, message: 'product created successfully' });
   }

@@ -38,7 +38,12 @@ app.use('/static', express.static('src/doc/public'))
 app.use('/images/products', express.static('src/mock_data/products_mock_data/products'))
 // Documentation file route
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/src/doc/index.html');
+  const fs = require('fs');
+  const path = require('path');
+  const { BASE_URL } = require('./src/helper/constants');
+  let html = fs.readFileSync(path.join(__dirname, 'src/doc/index.html'), 'utf8');
+  html = html.replace('<%= BASE_URL %>', BASE_URL);
+  res.send(html);
 });
 
 ///////////////// REST API routes /////////////////

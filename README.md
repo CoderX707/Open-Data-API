@@ -2,12 +2,12 @@
 
 Free REST API and GRAPHQL for testing and prototyping. 
 
-Live Demo : https://open-data-api.onrender.com/
+Live Demo : https://open-api.ssovee.com/ (configurable via BASE_URL environment variable)
 
 
 # Open source project
 
-https://open-data-api.onrender.com/ is a free online REST API as well as GRAPHQL that you can use whenever you need some data. This site is for study and practice purpose only, All data in this site is does not belong to anyone.
+https://open-api.ssovee.com/ (or your configured BASE_URL) is a free online REST API as well as GRAPHQL that you can use whenever you need some data. This site is for study and practice purpose only, All data in this site is does not belong to anyone.
 
 ## Contribute
 Pull requests are welcome, or open up an issue if you have ideas for additional functionality, new features or bugs.

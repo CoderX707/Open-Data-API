@@ -1,5 +1,6 @@
 const { products_mock_data } = require('../../helper/read_write_mock_data');
 const { paginate } = require('../../helper/pagination');
+const { BASE_URL } = require('../../helper/constants');
 
 // get file data to javascript object
 let products = products_mock_data();
@@ -30,7 +31,7 @@ const productsResolver = {
         newProduct.stock = stock;
         newProduct.brand = brand;
         newProduct.category = category;
-        newProduct.thumbnail = `https://open-data-api.onrender.com/rest-api/v1/images?text=${title}&height=300&width=400`
+        newProduct.thumbnail = `${BASE_URL}rest-api/v1/images?text=${title}&height=300&width=400`
         products.push(newProduct);
         return newProduct;
     },
